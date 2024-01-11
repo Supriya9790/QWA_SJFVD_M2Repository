@@ -4,13 +4,13 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.time.Duration;
+import java.util.Iterator;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
-public class GoogleKeyboardActions {
+public class GoogleInspectWIthForLoop {
 
 	public static void main(String[] args) throws AWTException {
 		// TODO Auto-generated method stub
@@ -22,19 +22,15 @@ public class GoogleKeyboardActions {
 		act.contextClick().perform();
 		
 		Robot r = new Robot();
-		r.keyPress(KeyEvent.VK_RIGHT);
-		r.keyPress(KeyEvent.VK_END);
+		for(int i = 0;i<=10;i++)
+		{
+			r.keyPress(KeyEvent.VK_RIGHT);
+			r.keyPress(KeyEvent.VK_END);
+		}
+		
 		r.keyPress(KeyEvent.VK_ENTER);
-		
-		r.keyRelease(KeyEvent.VK_RIGHT);
-		r.keyRelease(KeyEvent.VK_END);
-		
-		//driver.quit();
-		
-		
-		
-		
+		}
 
 	}
 
-}
+
