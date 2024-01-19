@@ -1,4 +1,4 @@
-package dropdownHandling;
+package selectClass;
 
 import java.time.Duration;
 
