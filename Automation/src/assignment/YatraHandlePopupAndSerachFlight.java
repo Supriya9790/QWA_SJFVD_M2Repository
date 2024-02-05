@@ -3,18 +3,24 @@ package assignment;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 
+import com.google.common.io.Files;
+
 public class YatraHandlePopupAndSerachFlight {
 
-	public static void main(String[] args) throws InterruptedException, AWTException {
+	public static void main(String[] args) throws InterruptedException, AWTException, IOException {
 		// TODO Auto-generated method stub
 		ChromeOptions opt = new ChromeOptions();
 		opt.addArguments("--disable-notifications");
@@ -29,23 +35,25 @@ public class YatraHandlePopupAndSerachFlight {
 		Thread.sleep(2000);
 		
 		//pass destination
-		WebElement destination = driver.findElement(By.id("BE_hotel_destination_city"));
-        destination.click();
+		driver.findElement(By.xpath("//input[@name='BE_hotel_destination']")).click();
         Thread.sleep(2000);
-        Robot r = new Robot();
-        r.keyPress(KeyEvent.VK_P);
-        r.keyRelease(KeyEvent.VK_P);
-        r.keyPress(KeyEvent.VK_U);
-        r.keyRelease(KeyEvent.VK_U);
-        r.keyPress(KeyEvent.VK_N);
-        r.keyRelease(KeyEvent.VK_N);
-        r.keyPress(KeyEvent.VK_E);
-        r.keyRelease(KeyEvent.VK_E);
-        Thread.sleep(2000);
+        //Robot r = new Robot();
+        //r.keyPress(KeyEvent.VK_P);
+        //r.keyRelease(KeyEvent.VK_P);
+       // r.keyPress(KeyEvent.VK_U);
+       // r.keyRelease(KeyEvent.VK_U);
+       // r.keyPress(KeyEvent.VK_N);
+       // r.keyRelease(KeyEvent.VK_N);
+        //r.keyPress(KeyEvent.VK_E);
+       // r.keyRelease(KeyEvent.VK_E);
+        
+       // Thread.sleep(2000);
        // r.keyPress(KeyEvent.VK_DOWN);
        // r.keyRelease(KeyEvent.VK_DOWN);
-        r.keyPress(KeyEvent.VK_ENTER);
-        r.keyRelease(KeyEvent.VK_ENTER);
+        //r.keyPress(KeyEvent.VK_ENTER);
+       // r.keyRelease(KeyEvent.VK_ENTER);
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//div[@class='viewport']/descendant::li[5]")).click();
         Thread.sleep(2000);
         
         //checkin checkout
@@ -70,8 +78,14 @@ public class YatraHandlePopupAndSerachFlight {
         
         //click on search
         driver.findElement(By.xpath("//input[@type='submit']")).click();
+        Thread.sleep(2000);
         
-        
+        Thread.sleep(2000);
+        TakesScreenshot ts = (TakesScreenshot)driver;
+		File src = ts.getScreenshotAs(OutputType.FILE);
+		File dest = new File("./screenshot/searchHotel.png");
+		Files.copy(src, dest);
+		driver.quit();
         
         
         
