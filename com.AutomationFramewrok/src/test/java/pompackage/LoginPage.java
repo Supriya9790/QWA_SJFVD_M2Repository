@@ -47,7 +47,7 @@ public class LoginPage {
 		usernameTextField.sendKeys(username);
 		passwordTextField.sendKeys(password);
 		loggedInCheckBox.click();
-		loginButton.click();
+		usernameTextField.clear();
 	}
 	
 

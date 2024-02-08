@@ -9,5 +9,7 @@ public interface IAutoConstant {
 	String EXCELPATH = "./src/test/resources/TestData.xlsx";
 	
     String SHEETNAME = "Valid";
+   
+    String INVALIDSHEETNAME = "Invalid";
 
 }
