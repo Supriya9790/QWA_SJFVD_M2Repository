@@ -6,7 +6,7 @@ public interface IAutoConstant {
 	
 	int TIMESECOND = 20;
 	
-	String EXCELPATH = "./src/test/resources/TestData.xlsx";
+	String EXCELPATH = "./src/test/resources/TestData1.xlsx";
 	
     String SHEETNAME = "Valid";
    

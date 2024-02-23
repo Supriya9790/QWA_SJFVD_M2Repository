@@ -1,4 +1,4 @@
-package keywordDrivenFramework;
+package designBaseTestUsingAnnotation;
 
 public interface IAutoConstant {
 	
